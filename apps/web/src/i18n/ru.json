@@ -1,0 +1,14 @@
+{
+  "menu.play": "ИГРАТЬ",
+  "menu.ship": "КОРАБЛЬ АСТРОЧЕЛА",
+  "menu.shop": "МАГАЗИН АСТРОЧЕЛА",
+  "menu.settings": "НАСТРОЙКИ",
+  "menu.exit": "ВЫХОД",
+  "common.back": "Назад",
+  "common.language": "Язык",
+  "stub.playTitle": "Играть",
+  "stub.shipTitle": "Корабль Астрочела",
+  "stub.shopTitle": "Магазин Астрочела",
+  "stub.settingsTitle": "Настройки",
+  "exit.status": "Выход из текущего пользователя..."
+}
