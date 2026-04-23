@@ -68,7 +68,7 @@
 ### Deploy
 
 - [x] **T-026** Выполнить сборку проекта и убедиться, что web-часть собирается без ошибок. (AC-1, AC-8)
-- [x] **T-027** Подготовить PR `feature/002-main-menu-assets` с ссылками на `spec.md`, `plan.md`, `tasks.md`, `quickstart.md`. (AC-1, AC-9)
+- [ ] **T-027** Подготовить PR `feature/002-main-menu-assets` с ссылками на `spec.md`, `plan.md`, `tasks.md`, `quickstart.md`. (AC-1, AC-9)
 - [ ] **T-028** Проверить прохождение CI и доступность staging-демо с навигацией меню и локализацией. (AC-1, AC-6, AC-7, AC-8, AC-9)
 
 ---
@@ -76,5 +76,5 @@
 ## Прогресс
 
 - Всего задач: 28
-- Выполнено: 27 / 28
-- Текущий блокер: Осталась проверка CI/staging по открытому PR.
+- Выполнено: 26 / 28
+- Текущий блокер: `git push -u origin HEAD` не проходит (`Permission denied (publickey)`), поэтому PR/CI/staging пока недоступны.
