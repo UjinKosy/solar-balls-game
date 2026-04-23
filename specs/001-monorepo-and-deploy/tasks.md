@@ -25,7 +25,7 @@
 ### Setup
 
 - [x] **T-001** Создать `pnpm-workspace.yaml` с пакетами `apps/*` и `packages/*`. (AC-2, AC-4)
-- [ ] **T-002** Добавить корневой `package.json` со скриптами `dev`, `build`, `deploy:prod`. (AC-2, AC-4)
+- [x] **T-002** Добавить корневой `package.json` со скриптами `dev`, `build`, `deploy:prod`. (AC-2, AC-4)
 - [ ] **T-003** Создать `packages/shared/package.json` и `packages/shared/tsconfig.json` как базу shared-пакета. (AC-2, AC-4)
 - [ ] **T-004** Подготовить `.env.example` с переменными для web/api/db без секретов. (AC-2, AC-5)
 
@@ -75,5 +75,5 @@
 ## Прогресс
 
 - Всего задач: 27
-- Выполнено: 1 / 27
+- Выполнено: 2 / 27
 - Текущий блокер: `plan.md` имеет статус Draft (рекомендуется перевести в Approved перед `/implement`)
