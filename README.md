@@ -137,6 +137,26 @@ ben-pvz/
 
 ---
 
+## Этап 0: локальная проверка
+
+```bash
+pnpm install
+POSTGRES_PORT=55432 docker compose up -d postgres
+pnpm dev
+```
+
+- Клиент: откройте `http://localhost:5173`.
+- API health-check: `curl -i http://localhost:3000/health`.
+- Публичный URL демо: добавьте ссылку после деплоя в PR (staging/prod).
+
+Остановить локальное окружение:
+
+```bash
+POSTGRES_PORT=55432 docker compose down
+```
+
+---
+
 ## Быстрый пример одной фичи полностью
 
 Для понимания — как выглядит работа над одной фичей от начала до конца:
