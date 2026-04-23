@@ -38,7 +38,7 @@
 - [x] **T-006** Создать `apps/web/src/i18n/en.json` с зеркальным набором ключей к `ru.json`. (AC-7)
 - [x] **T-007** Подготовить `apps/web/public/assets/menu/menu-bg.png` и проверить отображение в целевом размере сцены. (AC-8)
 - [x] **T-008** Подготовить `apps/web/public/assets/menu/btn-neon-blue.png` и `apps/web/public/assets/menu/btn-neon-pink.png`. (AC-1, AC-8)
-- [ ] **T-009** Подготовить `apps/web/public/assets/menu/astrochel-thumbsup.png` как персонажный элемент экрана. (AC-8)
+- [x] **T-009** Подготовить `apps/web/public/assets/menu/astrochel-thumbsup.png` как персонажный элемент экрана. (AC-8)
 - [ ] **T-010** Подготовить `apps/web/public/assets/ui/flag-ru.png` и `apps/web/public/assets/ui/flag-en.png` для переключателя языка в углу. (AC-7)
 - [ ] **T-011** Проверить и оптимизировать все новые PNG до лимита размера проекта без ухудшения читаемости. (AC-8)
 
@@ -76,5 +76,5 @@
 ## Прогресс
 
 - Всего задач: 28
-- Выполнено: 8 / 28
+- Выполнено: 9 / 28
 - Текущий блокер: `plan.md` в статусе `Draft` (желательно перевести в `Approved` перед началом реализации)
