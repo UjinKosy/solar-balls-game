@@ -1,7 +1,7 @@
 # Спецификация: Главное меню и workflow ассетов
 
 **ID фичи:** 002-main-menu-assets
-**Статус:** Draft
+**Статус:** Implemented
 **Автор:** Codex
 **Дата:** 2026-04-23
 **Связанный этап плана:** Этап 1 из `docs/plans/solar-balls-plan.md`
