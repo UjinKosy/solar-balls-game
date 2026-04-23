@@ -1,0 +1,14 @@
+{
+  "menu.play": "PLAY",
+  "menu.ship": "ASTROCHEL SHIP",
+  "menu.shop": "ASTROCHEL SHOP",
+  "menu.settings": "SETTINGS",
+  "menu.exit": "EXIT",
+  "common.back": "Back",
+  "common.language": "Language",
+  "stub.playTitle": "Play",
+  "stub.shipTitle": "Astrochel Ship",
+  "stub.shopTitle": "Astrochel Shop",
+  "stub.settingsTitle": "Settings",
+  "exit.status": "Signing out current user..."
+}
