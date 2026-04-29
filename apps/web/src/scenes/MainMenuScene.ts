@@ -40,7 +40,7 @@ export class MainMenuScene extends Phaser.Scene {
     ] as const;
 
     const onPressHandlers: (() => void)[] = [
-      () => this.scene.start("play-stub"),
+      () => this.scene.start("play"),
       () => this.scene.start("ship-stub"),
       () => this.scene.start("shop-stub"),
       () => this.scene.start("settings-stub"),

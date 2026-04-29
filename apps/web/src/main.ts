@@ -1,8 +1,8 @@
 import Phaser from "phaser";
 import { BootScene } from "./scenes/BootScene";
 import { MainMenuScene } from "./scenes/MainMenuScene";
+import { PlayScene } from "./scenes/play/PlayScene";
 import { PreloadScene } from "./scenes/PreloadScene";
-import { PlayStubScene } from "./scenes/stubs/PlayStubScene";
 import { SettingsStubScene } from "./scenes/stubs/SettingsStubScene";
 import { ShipStubScene } from "./scenes/stubs/ShipStubScene";
 import { ShopStubScene } from "./scenes/stubs/ShopStubScene";
@@ -21,7 +21,7 @@ const game = new Phaser.Game({
     BootScene,
     PreloadScene,
     MainMenuScene,
-    PlayStubScene,
+    PlayScene,
     ShipStubScene,
     ShopStubScene,
     SettingsStubScene,

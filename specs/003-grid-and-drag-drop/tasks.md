@@ -24,11 +24,11 @@
 
 ### Setup
 
-- [ ] **T-001** Создать каркас директорий `apps/web/src/scenes/play/`, `apps/web/src/systems/`, `apps/web/src/config/`. Подтвердить единый стиль именования файлов проекта (PascalCase для классов, kebab-case для assets). (AC-1, AC-10)
-- [ ] **T-002** Создать `apps/web/src/config/play.ts` с константами `GRID_ROWS=5`, `GRID_COLS=9`, `CELL_SIZE_VIRTUAL=96`, `BOARD_X`, `BOARD_Y`, `MIN_HITBOX_PX=64`, `ENERGY_PLACEHOLDER=50`. (AC-1, AC-3)
-- [ ] **T-003** В `apps/web/src/main.ts` зарегистрировать новую сцену `PlayScene` (ключ `"play"`); удалить `PlayStubScene` из массива `scene` и его импорт. (AC-1, AC-10)
-- [ ] **T-004** Удалить файл `apps/web/src/scenes/stubs/PlayStubScene.ts`; убедиться, что ни один импорт на него не остался (`pnpm --filter web build` должен пройти). (AC-1, AC-10)
-- [ ] **T-005** В `apps/web/src/scenes/MainMenuScene.ts` поменять обработчик «ИГРАТЬ» с `this.scene.start("play-stub")` на `this.scene.start("play")`. (AC-1, AC-10)
+- [x] **T-001** Создать каркас директорий `apps/web/src/scenes/play/`, `apps/web/src/systems/`, `apps/web/src/config/`. Подтвердить единый стиль именования файлов проекта (PascalCase для классов, kebab-case для assets). (AC-1, AC-10)
+- [x] **T-002** Создать `apps/web/src/config/play.ts` с константами `GRID_ROWS=5`, `GRID_COLS=9`, `CELL_SIZE_VIRTUAL=96`, `BOARD_X`, `BOARD_Y`, `MIN_HITBOX_PX=64`, `ENERGY_PLACEHOLDER=50`. (AC-1, AC-3)
+- [x] **T-003** В `apps/web/src/main.ts` зарегистрировать новую сцену `PlayScene` (ключ `"play"`); удалить `PlayStubScene` из массива `scene` и его импорт. (AC-1, AC-10)
+- [x] **T-004** Удалить файл `apps/web/src/scenes/stubs/PlayStubScene.ts`; убедиться, что ни один импорт на него не остался (`pnpm --filter web build` должен пройти). (AC-1, AC-10)
+- [x] **T-005** В `apps/web/src/scenes/MainMenuScene.ts` поменять обработчик «ИГРАТЬ» с `this.scene.start("play-stub")` на `this.scene.start("play")`. (AC-1, AC-10)
 
 ### Contract
 
