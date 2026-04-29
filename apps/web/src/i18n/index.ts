@@ -2,6 +2,8 @@ import en from "./en.json";
 import ru from "./ru.json";
 
 export type Locale = "ru" | "en";
+
+export type TFunction = (key: string) => string;
 type Dictionary = Record<string, string>;
 
 const dictionaries: Record<Locale, Dictionary> = {
