@@ -19,6 +19,14 @@ const CARD_DISPLAY_WIDTH = 200;
 
 const CARD_DISPLAY_HEIGHT = 252;
 
+const NAME_OFFSET_Y = CARD_DISPLAY_HEIGHT / 2 + 18;
+
+const HIT_PADDING_X = 24;
+
+const HIT_PADDING_TOP = 16;
+
+const HIT_PADDING_BOTTOM = 36;
+
 const DRAG_GHOST_SCALE = 0.45;
 
 const DRAG_GHOST_ALPHA = 0.55;
@@ -55,7 +63,7 @@ export class DefenderCard extends Phaser.GameObjects.Container {
       .setDisplaySize(CARD_DISPLAY_WIDTH, CARD_DISPLAY_HEIGHT);
 
     this.nameText = scene.add
-      .text(0, CARD_DISPLAY_HEIGHT / 2 + 18, options.label, {
+      .text(0, NAME_OFFSET_Y, options.label, {
         fontFamily: "Arial Black, Arial",
         fontSize: "20px",
         color: "#c7f8ff",
@@ -67,15 +75,27 @@ export class DefenderCard extends Phaser.GameObjects.Container {
 
     this.add([this.imageBg, this.nameText]);
 
-    const hitW = Math.max(CARD_DISPLAY_WIDTH, MIN_HITBOX_PX);
-    const hitH = Math.max(CARD_DISPLAY_HEIGHT, MIN_HITBOX_PX);
-    this.hitRect = new Phaser.Geom.Rectangle(-hitW / 2, -hitH / 2, hitW, hitH);
+    const hitW = Math.max(CARD_DISPLAY_WIDTH + HIT_PADDING_X * 2, MIN_HITBOX_PX);
+    const visibleTop = -CARD_DISPLAY_HEIGHT / 2 - HIT_PADDING_TOP;
+    const visibleBottom = NAME_OFFSET_Y + HIT_PADDING_BOTTOM;
+    const hitH = Math.max(visibleBottom - visibleTop, MIN_HITBOX_PX);
+
+    this.hitRect = new Phaser.Geom.Rectangle(-hitW / 2, visibleTop, hitW, hitH);
 
     this.setSize(hitW, hitH);
     this.setInteractive(this.hitRect, Phaser.Geom.Rectangle.Contains);
+    this.input!.cursor = "grab";
 
     this.setDepth(DEPTH.palette);
     scene.add.existing(this);
+  }
+
+  getDisplayHeight(): number {
+    return CARD_DISPLAY_HEIGHT;
+  }
+
+  getDisplayWidth(): number {
+    return CARD_DISPLAY_WIDTH;
   }
 
   setHome(x: number, y: number): void {

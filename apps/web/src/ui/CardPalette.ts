@@ -3,6 +3,10 @@ import { DEPTH, PALETTE_WIDTH } from "../config/play";
 import { t } from "../i18n";
 import { DefenderCard } from "./DefenderCard";
 
+const PALETTE_PANEL_TOP_Y = 24;
+
+const FIRST_CARD_TOP_PADDING = 56;
+
 export class CardPalette {
   private readonly scene: Phaser.Scene;
 
@@ -25,7 +29,13 @@ export class CardPalette {
 
   layout(viewportHeight: number, paletteCenterX: number): void {
     this.redrawBg(viewportHeight, paletteCenterX);
-    this.earthCard.setHome(paletteCenterX, viewportHeight / 2);
+
+    const cardHomeY =
+      PALETTE_PANEL_TOP_Y +
+      FIRST_CARD_TOP_PADDING +
+      this.earthCard.getDisplayHeight() / 2;
+
+    this.earthCard.setHome(paletteCenterX, cardHomeY);
   }
 
   refreshLabels(): void {
