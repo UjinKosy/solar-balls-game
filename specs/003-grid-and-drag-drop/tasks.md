@@ -61,17 +61,17 @@
 
 ### UI
 
-- [ ] **T-026** Реализовать `apps/web/src/ui/DefenderCard.ts` — UI-карточка-источник drag; параметризуется `cardId`, ключом спрайта и текстовой подписью; hitbox ≥ `MIN_HITBOX_PX`. (AC-2, AC-4, NFR-2)
-- [ ] **T-027** В `DefenderCard` реализовать «возврат домой» с короткой обратной анимацией (≤ 200 мс) при неудачном drop. (AC-7, AC-8)
-- [ ] **T-028** Реализовать `apps/web/src/ui/CardPalette.ts` — контейнер слева шириной 280 px с одной `DefenderCard` (Земля), читаемая локализованная подпись, depth=20. Карточка остаётся доступной после успешного размещения. (AC-2, AC-11, AC-12)
-- [ ] **T-029** Реализовать `apps/web/src/ui/PlacedDefender.ts` — спрайт защитника на клетке, depth=10, центр привязан к `GridSystem.cellCenter(addr)`. (AC-6)
-- [ ] **T-030** Реализовать `apps/web/src/ui/EnergyHud.ts` — иконка `energy-icon` + цифра `50` + локализованная подпись `play.energy`, depth=200. Значение статично, без подписки на события. (AC-3, AC-11)
-- [ ] **T-031** Реализовать `apps/web/src/scenes/play/PlayScene.ts` (ключ `"play"`): подключить `board-bg`, `GridSystem`, `CardPalette`, `EnergyHud`, `InputSystem`, `CellHighlight`; обработать `scene.shutdown` (off-listeners). (AC-1, AC-2, AC-3, AC-5, AC-10, NFR-3)
-- [ ] **T-032** В `PlayScene` подписать `dragenter`/`dragleave` на `CellHighlight.showAt`/`hide`, `drop` — на установку `PlacedDefender` через `GridSystem.markOccupied`. (AC-5, AC-6)
-- [ ] **T-033** В `PlayScene` обработать ветку «отпустили над занятой клеткой» и «отпустили вне поля» — карточка возвращается в палитру через `DefenderCard` (T-027). (AC-7, AC-8)
-- [ ] **T-034** В `PlayScene` добавить кнопку «Назад» через существующий `NeonButton` + `backToMainMenu(scene)` (как в `SectionStubScene`). (AC-10, AC-11)
-- [ ] **T-035** В `PlayScene` подписаться на `scale.on("resize", layout)` и при shutdown отписаться (по образцу `MainMenuScene`). (NFR-3, NFR-4)
-- [ ] **T-036** Прогнать `MainMenuScene` после изменений: смена локали ru/en на фоне открытой/закрытой `PlayScene` не оставляет непереведённых строк. (AC-11)
+- [x] **T-026** Реализовать `apps/web/src/ui/DefenderCard.ts` — UI-карточка-источник drag; параметризуется `cardId`, ключом спрайта и текстовой подписью; hitbox ≥ `MIN_HITBOX_PX`. (AC-2, AC-4, NFR-2)
+- [x] **T-027** В `DefenderCard` реализовать «возврат домой» с короткой обратной анимацией (≤ 200 мс) при неудачном drop. (AC-7, AC-8)
+- [x] **T-028** Реализовать `apps/web/src/ui/CardPalette.ts` — контейнер слева шириной 280 px с одной `DefenderCard` (Земля), читаемая локализованная подпись, depth=20. Карточка остаётся доступной после успешного размещения. (AC-2, AC-11, AC-12)
+- [x] **T-029** Реализовать `apps/web/src/ui/PlacedDefender.ts` — спрайт защитника на клетке, depth=10, центр привязан к `GridSystem.cellCenter(addr)`. (AC-6)
+- [x] **T-030** Реализовать `apps/web/src/ui/EnergyHud.ts` — иконка `energy-icon` + цифра `50` + локализованная подпись `play.energy`, depth=200. Значение статично, без подписки на события. (AC-3, AC-11)
+- [x] **T-031** Реализовать `apps/web/src/scenes/play/PlayScene.ts` (ключ `"play"`): подключить `board-bg`, `GridSystem`, `CardPalette`, `EnergyHud`, `InputSystem`, `CellHighlight`; обработать `scene.shutdown` (off-listeners). (AC-1, AC-2, AC-3, AC-5, AC-10, NFR-3)
+- [x] **T-032** В `PlayScene` подписать `dragenter`/`dragleave` на `CellHighlight.showAt`/`hide`, `drop` — на установку `PlacedDefender` через `GridSystem.markOccupied`. (AC-5, AC-6)
+- [x] **T-033** В `PlayScene` обработать ветку «отпустили над занятой клеткой» и «отпустили вне поля» — карточка возвращается в палитру через `DefenderCard` (T-027). (AC-7, AC-8)
+- [x] **T-034** В `PlayScene` добавить кнопку «Назад» через существующий `NeonButton` + `backToMainMenu(scene)` (как в `SectionStubScene`). (AC-10, AC-11)
+- [x] **T-035** В `PlayScene` подписаться на `scale.on("resize", layout)` и при shutdown отписаться (по образцу `MainMenuScene`). (NFR-3, NFR-4)
+- [x] **T-036** Прогнать `MainMenuScene` после изменений: смена локали ru/en на фоне открытой/закрытой `PlayScene` не оставляет непереведённых строк. (AC-11) — статически: все тексты в `PlayScene` идут через `t()`; `scene.start("play")` пере-создаёт сцену, поэтому актуальная локаль подхватывается автоматически. Динамическая проверка — в Integration (T-039).
 
 ### Integration
 
