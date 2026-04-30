@@ -15,9 +15,15 @@ export type DefenderCardOptions = {
   onLabelRequest: () => string;
 };
 
-const CARD_DISPLAY_WIDTH = 180;
+const CARD_DISPLAY_WIDTH = 200;
 
 const CARD_DISPLAY_HEIGHT = 252;
+
+const DRAG_GHOST_SCALE = 0.45;
+
+const DRAG_GHOST_ALPHA = 0.55;
+
+const DRAG_GHOST_OFFSET_Y = -56;
 
 export class DefenderCard extends Phaser.GameObjects.Container {
   readonly cardId: CardId;
@@ -25,6 +31,8 @@ export class DefenderCard extends Phaser.GameObjects.Container {
   private readonly imageBg: Phaser.GameObjects.Image;
 
   private readonly nameText: Phaser.GameObjects.Text;
+
+  private readonly hitRect: Phaser.Geom.Rectangle;
 
   private readonly labelProvider: () => string;
 
@@ -59,19 +67,12 @@ export class DefenderCard extends Phaser.GameObjects.Container {
 
     this.add([this.imageBg, this.nameText]);
 
-    this.setSize(
-      Math.max(CARD_DISPLAY_WIDTH, MIN_HITBOX_PX),
-      Math.max(CARD_DISPLAY_HEIGHT, MIN_HITBOX_PX)
-    );
-    this.setInteractive(
-      new Phaser.Geom.Rectangle(
-        -CARD_DISPLAY_WIDTH / 2,
-        -CARD_DISPLAY_HEIGHT / 2,
-        CARD_DISPLAY_WIDTH,
-        CARD_DISPLAY_HEIGHT
-      ),
-      Phaser.Geom.Rectangle.Contains
-    );
+    const hitW = Math.max(CARD_DISPLAY_WIDTH, MIN_HITBOX_PX);
+    const hitH = Math.max(CARD_DISPLAY_HEIGHT, MIN_HITBOX_PX);
+    this.hitRect = new Phaser.Geom.Rectangle(-hitW / 2, -hitH / 2, hitW, hitH);
+
+    this.setSize(hitW, hitH);
+    this.setInteractive(this.hitRect, Phaser.Geom.Rectangle.Contains);
 
     this.setDepth(DEPTH.palette);
     scene.add.existing(this);
@@ -94,12 +95,17 @@ export class DefenderCard extends Phaser.GameObjects.Container {
 
     if (active) {
       this.setDepth(DEPTH.ghost);
-      this.setScale(1.06);
-      this.imageBg.setAlpha(0.92);
+      this.imageBg.setScale(DRAG_GHOST_SCALE);
+      this.imageBg.setAlpha(DRAG_GHOST_ALPHA);
+      this.imageBg.setY(DRAG_GHOST_OFFSET_Y);
+      this.nameText.setVisible(false);
     } else {
       this.setDepth(DEPTH.palette);
-      this.setScale(1);
+      this.imageBg.setScale(1);
       this.imageBg.setAlpha(1);
+      this.imageBg.setY(0);
+      this.nameText.setVisible(true);
+      this.refreshInteractive();
     }
   }
 
@@ -121,5 +127,12 @@ export class DefenderCard extends Phaser.GameObjects.Container {
   snapHome(): void {
     this.scene.tweens.killTweensOf(this);
     this.setPosition(this.homeX, this.homeY);
+  }
+
+  private refreshInteractive(): void {
+    if (!this.input) {
+      return;
+    }
+    this.input.hitArea = this.hitRect;
   }
 }
