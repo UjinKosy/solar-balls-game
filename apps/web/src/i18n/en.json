@@ -12,5 +12,8 @@
   "stub.shipTitle": "Astrochel Ship",
   "stub.shopTitle": "Astrochel Shop",
   "stub.settingsTitle": "Settings",
-  "exit.status": "Signing out current user..."
+  "exit.status": "Signing out current user...",
+  "play.title": "Game Board",
+  "play.energy": "Energy",
+  "play.card.earth": "Earth"
 }

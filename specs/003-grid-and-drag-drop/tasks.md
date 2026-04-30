@@ -39,15 +39,15 @@
 
 ### Content
 
-- [ ] **T-010** Дополнить `apps/web/src/i18n/ru.json` ключами `play.title`, `play.energy`, `play.card.earth`. (AC-11)
-- [ ] **T-011** Дополнить `apps/web/src/i18n/en.json` зеркальным набором (`Game Board`, `Energy`, `Earth`). (AC-11)
-- [ ] **T-012** Подготовить `apps/web/public/assets/play/board-bg.png` (фон поля 1280×720, прозрачный или с тёмным неоновым оформлением). (AC-1, NFR-4)
-- [ ] **T-013** Подготовить `apps/web/public/assets/play/cell-highlight.png` (160×160, неоновая обводка, прозрачная заливка). (AC-5)
-- [ ] **T-014** Подготовить `apps/web/public/assets/play/earth-card.png` (256×360, прозрачный фон, kawaii-Earth в карточной рамке). (AC-2, NFR-4)
-- [ ] **T-015** Подготовить `apps/web/public/assets/play/earth-idle.png` (256×256, прозрачный, защитник на поле). (AC-6, NFR-4)
-- [ ] **T-016** Подготовить `apps/web/public/assets/ui/energy-icon.png` (64×64, прозрачный, иконка-орб). (AC-3)
-- [ ] **T-017** Оптимизировать все новые PNG до ≤ 200 КБ без потери читаемости (Принцип 9). (NFR-4)
-- [ ] **T-018** В `apps/web/src/scenes/PreloadScene.ts` добавить `this.load.image(...)` для ключей `board-bg`, `cell-highlight`, `earth-card`, `earth-idle`, `energy-icon`. (AC-1, AC-2, AC-3, AC-5, AC-6)
+- [x] **T-010** Дополнить `apps/web/src/i18n/ru.json` ключами `play.title`, `play.energy`, `play.card.earth`. (AC-11)
+- [x] **T-011** Дополнить `apps/web/src/i18n/en.json` зеркальным набором (`Game Board`, `Energy`, `Earth`). (AC-11)
+- [x] **T-012** Подготовить `apps/web/public/assets/play/board-bg.png` (фон поля 1280×720, прозрачный или с тёмным неоновым оформлением). (AC-1, NFR-4)
+- [x] **T-013** Подготовить `apps/web/public/assets/play/cell-highlight.png` (160×160, неоновая обводка, прозрачная заливка). (AC-5)
+- [x] **T-014** Подготовить `apps/web/public/assets/play/earth-card.png` (256×360, прозрачный фон, kawaii-Earth в карточной рамке). (AC-2, NFR-4)
+- [x] **T-015** Подготовить `apps/web/public/assets/play/earth-idle.png` (256×256, прозрачный, защитник на поле). (AC-6, NFR-4)
+- [x] **T-016** Подготовить `apps/web/public/assets/ui/energy-icon.png` (64×64, прозрачный, иконка-орб). (AC-3)
+- [x] **T-017** Оптимизировать все новые PNG до ≤ 200 КБ без потери читаемости (Принцип 9). (NFR-4)
+- [x] **T-018** В `apps/web/src/scenes/PreloadScene.ts` добавить `this.load.image(...)` для ключей `board-bg`, `cell-highlight`, `earth-card`, `earth-idle`, `energy-icon`. (AC-1, AC-2, AC-3, AC-5, AC-6)
 
 ### Core
 
