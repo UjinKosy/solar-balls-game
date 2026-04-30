@@ -40,7 +40,7 @@ export class DefenderCard extends Phaser.GameObjects.Container {
 
   private readonly nameText: Phaser.GameObjects.Text;
 
-  private readonly hitRect: Phaser.Geom.Rectangle;
+  private readonly hitZone: Phaser.GameObjects.Zone;
 
   private readonly labelProvider: () => string;
 
@@ -73,21 +73,25 @@ export class DefenderCard extends Phaser.GameObjects.Container {
       })
       .setOrigin(0.5);
 
-    this.add([this.imageBg, this.nameText]);
-
     const hitW = Math.max(CARD_DISPLAY_WIDTH + HIT_PADDING_X * 2, MIN_HITBOX_PX);
-    const visibleTop = -CARD_DISPLAY_HEIGHT / 2 - HIT_PADDING_TOP;
-    const visibleBottom = NAME_OFFSET_Y + HIT_PADDING_BOTTOM;
-    const hitH = Math.max(visibleBottom - visibleTop, MIN_HITBOX_PX);
+    const imageTop = -CARD_DISPLAY_HEIGHT / 2 - HIT_PADDING_TOP;
+    const textBottom = NAME_OFFSET_Y + HIT_PADDING_BOTTOM;
+    const hitH = Math.max(textBottom - imageTop, MIN_HITBOX_PX);
+    const hitCenterY = (imageTop + textBottom) / 2;
 
-    this.hitRect = new Phaser.Geom.Rectangle(-hitW / 2, visibleTop, hitW, hitH);
+    this.hitZone = scene.add
+      .zone(0, hitCenterY, hitW, hitH)
+      .setOrigin(0.5);
+    this.hitZone.setInteractive({ useHandCursor: true });
 
-    this.setSize(hitW, hitH);
-    this.setInteractive(this.hitRect, Phaser.Geom.Rectangle.Contains);
-    this.input!.cursor = "grab";
+    this.add([this.imageBg, this.nameText, this.hitZone]);
 
     this.setDepth(DEPTH.palette);
     scene.add.existing(this);
+  }
+
+  getDragSource(): Phaser.GameObjects.Zone {
+    return this.hitZone;
   }
 
   getDisplayHeight(): number {
@@ -125,7 +129,6 @@ export class DefenderCard extends Phaser.GameObjects.Container {
       this.imageBg.setAlpha(1);
       this.imageBg.setY(0);
       this.nameText.setVisible(true);
-      this.refreshInteractive();
     }
   }
 
@@ -147,12 +150,5 @@ export class DefenderCard extends Phaser.GameObjects.Container {
   snapHome(): void {
     this.scene.tweens.killTweensOf(this);
     this.setPosition(this.homeX, this.homeY);
-  }
-
-  private refreshInteractive(): void {
-    if (!this.input) {
-      return;
-    }
-    this.input.hitArea = this.hitRect;
   }
 }

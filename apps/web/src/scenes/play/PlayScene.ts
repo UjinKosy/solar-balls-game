@@ -95,12 +95,12 @@ export class PlayScene extends Phaser.Scene {
   private registerEarthCardDrag(): void {
     const card = this.palette.earthCard;
 
-    this.input2.registerDragSource(card, {
+    this.input2.registerDragSource(card.getDragSource(), {
       onDragStart: () => {
         card.setDragVisual(true);
       },
-      onDrag: (_pointer, dragX, dragY) => {
-        card.followPointer(dragX, dragY);
+      onDrag: (pointer) => {
+        card.followPointer(pointer.worldX, pointer.worldY);
       },
       onDragOver: (cell: CellAddress | null) => {
         if (cell) {
