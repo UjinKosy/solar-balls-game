@@ -51,13 +51,13 @@
 
 ### Core
 
-- [ ] **T-019** Реализовать `apps/web/src/systems/GridSystem.ts`: инициализация 5×9 клеток, метод `layout(width, height)`, `cellAt(x, y): CellAddress | null`, `cellCenter(addr): {x, y}`, `isOccupied(addr)`, `markOccupied(addr)`. Все размеры берутся из `play.ts`. (AC-1, AC-5, AC-6, AC-7, NFR-3)
-- [ ] **T-020** В `GridSystem` добавить отрисовку видимой сетки клеток поверх `board-bg` (тонкая неоновая линия на границах клеток, depth=5). (AC-1)
-- [ ] **T-021** Реализовать `apps/web/src/ui/CellHighlight.ts` — одна переиспользуемая инстанция спрайта `cell-highlight`, методы `showAt(addr)` / `hide()`; одновременно подсвечивает не более одной клетки. (AC-5)
-- [ ] **T-022** Реализовать `apps/web/src/systems/InputSystem.ts` — тонкая обёртка над `this.input.setDraggable(...)` и drag-цепочкой; принимает источник (карточку) и цель (Grid), проксирует события без игровой логики внутри. (AC-4, AC-5, AC-6, AC-7, AC-8, AC-9, NFR-1)
-- [ ] **T-023** В `InputSystem` обеспечить `dragstart` → создание «призрака» с `depth=100` и follow-pointer; `dragend` всегда снимает «призрак», даже при ошибке drop. (AC-4, AC-7, AC-8)
-- [ ] **T-024** В `InputSystem` подписать `pointermove` через `drag` так, чтобы `GridSystem` получал актуальную клетку под указателем для подсветки и решения о drop. (AC-5)
-- [ ] **T-025** В `apps/web/index.html` (или через стиль на `#app`) выставить `touch-action: none` на канвасе, чтобы тач-жест на мобиле не вызывал прокрутку страницы во время drag. (AC-9, NFR-1)
+- [x] **T-019** Реализовать `apps/web/src/systems/GridSystem.ts`: инициализация 5×9 клеток, метод `layout(width, height)`, `cellAt(x, y): CellAddress | null`, `cellCenter(addr): {x, y}`, `isOccupied(addr)`, `markOccupied(addr)`. Все размеры берутся из `play.ts`. (AC-1, AC-5, AC-6, AC-7, NFR-3)
+- [x] **T-020** В `GridSystem` добавить отрисовку видимой сетки клеток поверх `board-bg` (тонкая неоновая линия на границах клеток, depth=5). (AC-1)
+- [x] **T-021** Реализовать `apps/web/src/ui/CellHighlight.ts` — одна переиспользуемая инстанция спрайта `cell-highlight`, методы `showAt(addr)` / `hide()`; одновременно подсвечивает не более одной клетки. (AC-5)
+- [x] **T-022** Реализовать `apps/web/src/systems/InputSystem.ts` — тонкая обёртка над `this.input.setDraggable(...)` и drag-цепочкой; принимает источник (карточку) и цель (Grid), проксирует события без игровой логики внутри. (AC-4, AC-5, AC-6, AC-7, AC-8, AC-9, NFR-1)
+- [x] **T-023** В `InputSystem` обеспечить `dragstart` → создание «призрака» с `depth=100` и follow-pointer; `dragend` всегда снимает «призрак», даже при ошибке drop. (AC-4, AC-7, AC-8)
+- [x] **T-024** В `InputSystem` подписать `pointermove` через `drag` так, чтобы `GridSystem` получал актуальную клетку под указателем для подсветки и решения о drop. (AC-5)
+- [x] **T-025** В `apps/web/index.html` (или через стиль на `#app`) выставить `touch-action: none` на канвасе, чтобы тач-жест на мобиле не вызывал прокрутку страницы во время drag. (AC-9, NFR-1)
 
 ### UI
 
